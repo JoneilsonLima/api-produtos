@@ -38,21 +38,34 @@ mvn spring-boot:run
 
  ## Endpoints da API
 
-- `GET /products`: Retorna todos os produtos cadastrados.
-- `GET /products/{id}`: Retorna um produto específico pelo seu ID.
-- `POST /products`: Cria um novo produto.
-- `PUT /products/{id}`: Atualiza um produto existente pelo seu ID.
-- `DELETE /products/{id}`: Remove um produto pelo seu ID.
+- `POST /api/posts`: Cadastra um novo post.
+- `GET /api/posts`: Retorna todos os posts.
+- `GET /api/posts/${postId}/${likedPost}`: Busca o post por id passando um outro parámetro se está no visualizando no feed ou perfil.
+- `PUT /api/posts/${postId}/like`: Curti um post.
+- `GET /api/posts/search/${name}`: Busca post pelo nome.
+- `POST /api/comments/create`: Cadastra um comentário em um post.
+- `GET /api/comments/${postId}`: Busca todos os comentários de um post.
 
 ## Exemplo de Requisição e Resposta
-### Requisição POST /products
+### Requisição GET /api/posts
 
-POST /products
-Content-Type: application/json
+GET /api/posts
 ```
-{
-  "name": "Produto A",
-  "value": 29.99,
-}
+[
+   {
+       "id": 2,
+       "name": root,
+       "content": exemplo,
+       "postedBy": jhon,
+       "img": "https://images.com/",
+       "date": "2024-03-14T04:03:26.854+00:00",
+       "likeCount": 12,
+       "viewCount": 30,
+       "tags": [
+          "neve",
+          "férias"
+       ]
+   }
+]
 ```
 
